@@ -14,7 +14,7 @@ import os
 
 ##*Code starts here
 
-##Variables
+#Setting up the work directory to where ever the main.py is, useful for file paths
 location=os.path.dirname(__file__)
 os.chdir(location)
 
