@@ -1,0 +1,3 @@
+Changes made in Assembly 3:
+- added indents into the grippers
+- added padding around the edges to make the gripper wider around where it connects to the gear

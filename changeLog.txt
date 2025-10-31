@@ -1,0 +1,14 @@
+/*
+This is the change log file, now for each individual commit and whatever github would ask you to put some comment 
+when you do it. This file is just a backup/quick reference. We will see how well it works, if it's too much hussle
+to merge we will trash this file. 
+There's no standard notation, just keep it casual and to the point.
+*/
+
+
+2025-10-31 JL:
+    - Github repository initialized 
+    - contents include: 
+        *skeletal file structure 
+        *placeholder code files  
+        *CAD files from iteration 3

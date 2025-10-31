@@ -1,0 +1,19 @@
+#Fri-12 P1 Team, 2025 Fall
+
+## General Information
+All models are stored in CAD_models folder, all the python code are stored in Code folder.
+
+Ideally each of us should be putting our individual functions in their own files so whenever 
+    we merge there's less hussle. See the Code folder for reference.
+
+Everyone actively working on any aspect of the project should, ideally, downloaded the repo to
+    their own machine and work on their local version. After finished we will merge everything to 
+    the main branch. (I'm not great at github so we will see when time comes.)
+
+Any suggestions and ideas for improve the structure is welcomed, just leave a quick message in
+    our group chat. Good luck all.
+
+## How To Manage File Input and Output
+In the main file os.chdir() and os.path.dirname() were used to change the working directory to where ever 
+    the main file is. When outputing/reading file to/from Content folder, put the following path before 
+    the file name "./content/[the file you are looking for]".
