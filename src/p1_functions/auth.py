@@ -1,5 +1,5 @@
 from p1_functions.signup import sign_up
-import lib.bcrypt   #included in lib folder
+import bcrypt   #included in lib folder
 
 def loadUserEntry():
     """
