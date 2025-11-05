@@ -1,5 +1,5 @@
 from p1_functions.signup import sign_up
-import bcrypt   #included in lib folder
+import lib.bcrypt   #included in lib folder
 
 def loadUserEntry():
     """
@@ -16,7 +16,7 @@ def loadUserEntry():
     file.close()
     return userList
     
-def authenticate(): #TODO: Implement the ability to accept and recognize encrypted passwords
+def authenticate():
     """
     Handles the entire login authentication process.
     Asks the user to input their user name and password,
@@ -32,6 +32,7 @@ def authenticate(): #TODO: Implement the ability to accept and recognize encrypt
 
         #check if sign_up call is needed
         if userName=="quit()":  #?Exit 1
+            input("Sign up canceled.")
             return None #Incase user just want to quit
         if userName=="-1":
             sign_up()
@@ -40,8 +41,6 @@ def authenticate(): #TODO: Implement the ability to accept and recognize encrypt
         #Load the user entry, incase a new user has been added 
         userList=loadUserEntry()
 
-        print(userList)#debug
-
         #Check if the user name exists
         userExist=False #Default states for userExist and userIndex
         uesrIndex=-1    
@@ -49,13 +48,11 @@ def authenticate(): #TODO: Implement the ability to accept and recognize encrypt
             if entry[0]==userName:
                 userExist=True
                 uesrIndex=userList.index(entry)
-                print(entry)
-                print(uesrIndex)
-                print(userList[uesrIndex])
-        
+
         if userExist==True:
             password=input("User found, please input password now: ")
-            if userList[uesrIndex][1]==password:    #?Exit2
+            expectedPassword=str(userList[uesrIndex][1])    #The str constrcutor doesn't do anything really, it's just here for readability
+            if lib.bcrypt.checkpw(password.encode('utf-8'),expectedPassword.encode('utf-8')):    #?Exit2
                 print(f"User authentication acknowledged, welcome {userName}.")
                 return userName
             else:
