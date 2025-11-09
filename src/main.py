@@ -18,4 +18,13 @@ import os
 location=os.path.dirname(__file__)
 os.chdir(location)
 
-authenticate()
+product_list = []
+
+file = open("./content/products.csv", "r")
+
+for line in file:
+    product = []
+    for word in line.split(","):
+        product.append(word)
+    product_list.append(product)
+pack_products(product_list)
