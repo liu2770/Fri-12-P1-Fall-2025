@@ -1,7 +1,4 @@
-##Team Function
-
 def pack_products(product_list):
-    #TODO: put your code here
     for product in product_list:
         if product in product_list:
             ##Product moving code
