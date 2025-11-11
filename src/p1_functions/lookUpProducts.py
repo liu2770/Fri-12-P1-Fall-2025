@@ -1,7 +1,7 @@
-def lookup_products(products):
-    file=open("./content/user.csv","r")
-        items = products.split(",")
-    list = []
+def lookup_products(products):  #TODO:General lack of comments
+    file=open("./content/products.csv","r")
+    items = products.split(",")
+    list = []   #TODO:variable names are hard to distinguish
     products_file = []
     for line in file:
         line_copy = line
@@ -13,9 +13,9 @@ def lookup_products(products):
             if name == products_file[index][0]:
                 match = True
                 index_match = index
-        if match == True:
+        if match == True:   #TODO:redundant if statements
             list.append(products_file[index_match])
         elif match == False:
             print(f"Error, product '{name}' not found")
     file.close()
-    return list
+    return list #?On the P1 documents it says "Make sure the data types are correct." Does it mean we need to make prices into floats?
