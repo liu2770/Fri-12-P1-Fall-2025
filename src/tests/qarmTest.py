@@ -1,7 +1,3 @@
-"""
-Script for testing the Q arm, NOT a part of the actual program
-Fri-12 P1, Jincheng Liu, 2025 Fall
-"""
 # !/usr/bin/env python3
 # coding: utf-8
 # --------------------------------------------------------------------------------
@@ -20,22 +16,65 @@ scan_barcode = BarcodeScanner.scan_barcode
 # --------------------------------------------------------------------------------
 # STUDENT CODE BEGINS
 # ---------------------------------------------------------------------------------
-
+#TODO: Redo the skeletal strcuture, keywords: open&close, individual functions for all objects, move to parcel from home
 ##Global variables
-motorStepsTotal=0 #Used to restore the system to its original state at the end of the program
-
+action_interval=1   #time in seconds
 ##Functions
-def motorAction(deg):
-    """
-    Encapsulation of some sort, should be called instead all time whenever arm.rotate_gripper() is needed.
-    Records the steps of the motor then rotate the gripper.
-    """
-    motorStepsTotal+deg
-    arm.rotate_gripper(deg)
+def gripperInit():  #Initialize gripper state
+    arm.home()
+    sleep(action_interval)
+
+    close_gripper()
+    sleep(action_interval)
     return
 
-def target_1_logic():
-    #TODO: Store the scipt for picking up and dropping object 1
+def open_gripper():
+    arm.rotate_gripper(-120)
+    sleep(action_interval)
+    return
+
+def close_gripper():
+    arm.rotate_gripper(120)
+    sleep(action_interval)
+    return
+
+def move_to_parcel():
+    #TODO: Store the script for moving the gripper to parcel location
+    return
+
+def target_1_logic():   #Sponge
+    #TODO: Store the script for picking up object 1 and return to home
+
+    arm.home()
+    sleep(action_interval)
+    return
+
+def target_2_logic():   #Bottel
+    #TODO: Store the script for picking up object 2 and return to home
+
+    arm.home()
+    sleep(action_interval)
+    return
+
+def target_3_logic():   #D12
+    #TODO: Store the script for picking up object 3 and return to home
+
+    arm.home()
+    sleep(action_interval)
+    return
+
+def target_4_logic():   #Wizard hat
+    #TODO: Store the script for picking up object 4 and return to home
+
+    arm.home()
+    sleep(action_interval)
+    return
+
+def target_5_logic():   #Bowl
+    #TODO: Store the script for picking up object 5 and return to home
+
+    arm.home()
+    sleep(action_interval)
     return
 
 ##Testing starts here
