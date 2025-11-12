@@ -16,10 +16,10 @@ os.chdir(location)
 
 ##*Code starts here
 #TODO: Implement a skeletal structure following the outlined sequence of events
-##Login the user  
-user=authenticate()
-
 while True:
+    ##Login the user  
+    user=authenticate()
+
     ##Scans items   #?Eh no clue what to do here, I don't really see anywhere explicitly lay out the instruction for this.
 
     ##Looks up items and their prices
@@ -43,4 +43,4 @@ while True:
         break
 
 ##Summarize customer order history
-customer_summary(user)
+customer_summary(input("Please enter the user ID to see its account summary: "))
