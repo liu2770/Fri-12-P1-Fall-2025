@@ -16,26 +16,31 @@ os.chdir(location)
 
 ##*Code starts here
 #TODO: Implement a skeletal structure following the outlined sequence of events
-##Login the user    #?Should the whole program be kept in a loop? Or is it just one off from start to finish?
+##Login the user  
 user=authenticate()
 
-##Scans items   #?Eh no clue what to do here, I don't really see anywhere explicitly lay out the instruction for this.
+while True:
+    ##Scans items   #?Eh no clue what to do here, I don't really see anywhere explicitly lay out the instruction for this.
 
-##Looks up items and their prices
-product_list=lookup_products(scanned_list)
+    ##Looks up items and their prices
+    product_list=lookup_products(scanned_list)
 
-##Order to Q-arm to move the items
-# product_list = []
-# file = open("./content/products.csv", "r")
-# for line in file:
-#     product = []
-#     for word in line.split(","):
-#         product.append(word)
-#     product_list.append(product)
-pack_products(product_list) 
+    ##Order to Q-arm to move the items
+    # product_list = []
+    # file = open("./content/products.csv", "r")
+    # for line in file:
+    #     product = []
+    #     for word in line.split(","):
+    #         product.append(word)
+    #     product_list.append(product)
+    pack_products(product_list) 
 
-##Calculate total & record order in csv
-complete_order(user,product_list)
+    ##Calculate total & record order in csv
+    complete_order(user,product_list)
+
+    ##Ask the user if they want to continue or quit
+    if (not bool(input("Enter anything to make another order, enter nothing to see summary and quit.\n"))):
+        break
 
 ##Summarize customer order history
 customer_summary(user)
