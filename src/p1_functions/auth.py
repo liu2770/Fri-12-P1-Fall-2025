@@ -22,7 +22,7 @@ def authenticate():
     Asks the user to input their user name and password,
     if they dont have one call sign_up(). Return
     the user name upon successful authentication,
-    let them keep trying if not. Reads from users.csv
+    let them keep trying if not. Reads from users.csv.
     """
     ##Start of the program
     #Proceed to authenticate the user with a while loop
