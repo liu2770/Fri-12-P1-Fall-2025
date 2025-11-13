@@ -1,5 +1,0 @@
-- increased gripper straight area length
-- increased gripper screw indent diameter
-- slightly increased hole in pinion to fit on motor
-
-- changed indent on grippers to one side only
