@@ -3,11 +3,11 @@ import lib.bcrypt   #included in lib folder
 
 def loadUserEntry():
     """
-    Helper function, handels read from user.csv. Return 
+    Helper function, handels read from users.csv. Return 
     a 2D list consists of user names and corresponding 
     passwords.
     """
-    file=open("./content/user.csv","r")
+    file=open("./content/users.csv","r")
     userList=[]
     fileLines=file.read().split(sep="\n")
     for line in fileLines:
