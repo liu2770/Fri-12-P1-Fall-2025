@@ -1,5 +1,5 @@
 import csv
-import bcrypt
+import lib.bcrypt
 import re
 
 def sign_up():
@@ -24,7 +24,7 @@ def sign_up():
             break
         else:
             print("Password doesn't meet requirements, try again.")
-    hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+    hashed_pw = lib.bcrypt.hashpw(password.encode("utf-8"), lib.bcrypt.gensalt()).decode("utf-8")
     with open("contents/users.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([userid, hashed_pw])
