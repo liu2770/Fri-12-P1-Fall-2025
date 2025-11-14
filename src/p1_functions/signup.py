@@ -1,30 +1,38 @@
 import csv
-import lib.bcrypt
+import bcrypt
 import re
-import os
 
 def sign_up():
-    userid = input("Enter a new user ID: ").strip()
+    while True:
+        userid = input("Enter a new user ID: ").strip()
+        used = False
 
-    # if os.path.exists("users.csv"): #?We dont really need to verify the existance of the file here, also see readme for handling File IO
-    with open("./content/users.csv", "r", newline="") as f:
-        reader = csv.reader(f)
-        for row in reader:
-            if len(row) > 0 and row[0] == userid:
-                print("User ID already exists. Please choose another one.")
-                return
+        with open("contents/users.csv", "r", newline="") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                if len(row) > 0 and row[0] == userid:
+                    print("User ID already exists. Try another.")
+                    used = True
+                    break
 
-    password = input("Enter a password: ").strip()
+        if not used:
+            break
 
     pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!.@#$%^&*()_\[\]]).{6,}$'
-    if not re.match(pattern, password):
-        print("Password must be at least 6 characters and contain one uppercase letter, one lowercase letter, one digit, and one symbol (!.@#$%^&*()_[])")
-        return  #!Should not just boot the user out of the sign up process, instead let the user to try again
 
-    hashed_pw = lib.bcrypt.hashpw(password.encode("utf-8"), lib.bcrypt.gensalt()).decode("utf-8")
+    while True:
+        password = input("Enter password (or type CANCEL): ").strip()
+        if password.upper() == "CANCEL":
+            print("Sign up cancelled.")
+            return
+        if re.match(pattern, password):
+            break
+        print("Password not strong enough. Try again.")
 
-    with open("./content/users.csv", "a", newline="") as f:
+    hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+    with open("contents/users.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([userid, hashed_pw])
 
-    print("Account created successfully!")
+    print("Account created.")
