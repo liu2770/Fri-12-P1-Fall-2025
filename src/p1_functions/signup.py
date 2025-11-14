@@ -1,5 +1,5 @@
 import csv
-import bcrypt
+import lib.bcrypt
 import re
 
 def sign_up():
