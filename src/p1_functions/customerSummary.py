@@ -1,5 +1,5 @@
 def customer_summary(userid):
-    file = open("orders.csv",'r')
+    file = open("./content/orders.csv",'r')
     validation = False
     userlines = []
     for line in file:

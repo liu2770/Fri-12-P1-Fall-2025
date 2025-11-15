@@ -6,7 +6,7 @@ def sign_up():
     # ask for user id and clean spaces
     userid = input("Enter a new user ID: ").strip()
     # read existing users
-    with open("contents/users.csv", "r", newline="") as f:
+    with open("content/users.csv", "r", newline="") as f:
         reader = csv.reader(f)
         existing = [row[0] for row in reader]
     if userid in existing:
@@ -25,7 +25,7 @@ def sign_up():
         else:
             print("Password doesn't meet requirements, try again.")
     hashed_pw = lib.bcrypt.hashpw(password.encode("utf-8"), lib.bcrypt.gensalt()).decode("utf-8")
-    with open("contents/users.csv", "a", newline="") as f:
+    with open("content/users.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([userid, hashed_pw])
 
