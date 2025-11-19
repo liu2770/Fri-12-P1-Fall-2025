@@ -58,8 +58,8 @@ def complete_order(userid, product_list):
         print(f"{product_name:<11}"$"{product_price:>13.2}")
 
     print(f"-" * 25)
-    print(f"{"Subtotal":<10}"$"{subtotal:>15}")
-    print(f"{"Discount":<10}"$"{discount:>15.2f}")
-    print(f"{"Tax":<10}"$"{tax_applied:>15.2f}")
-    print(f"{"Total":<10}"$"{total:>15}")
+    print(f"{"Subtotal":<10}", f"${subtotal:>15}")
+    print(f"{"Discount":<10}", f"{discount:>15.2f}")
+    print(f"{"Tax":<10}", f"{tax_applied:>15.2f}")
+    print(f"{"Total":<10}", f"{total:>15}")
     print(f"\nyou have made {order_count} orders with us so far ")
