@@ -31,13 +31,14 @@ while True:
         break
 
     ##Scans items   
-    # load_barcodes()
+    #scan_barcode()
+    scanned_list="D12,Sponge,WitchHat"
 
     ##Looks up items and their prices
-    # product_list=lookup_products(scanned_list)
+    product_list=lookup_products(scanned_list)
 
     ##Order to Q-arm to move the items
-    product_list = [["D12",0.12],["Sponge",0.50]]
+    # product_list = [["D12",0.12],["Sponge",0.50]]
     # file = open("./content/products.csv", "r")
     # for line in file:
     #     product = []

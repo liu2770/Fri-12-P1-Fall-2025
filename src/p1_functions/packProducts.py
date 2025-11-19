@@ -8,13 +8,13 @@ def pack_products(product_list):
     print("testing!")   #!Remove this line, stub
     return
 
-product_list = []
+# product_list = []
 
-file = open("products.csv", "r")
+# file = open("./content/products.csv", "r")
 
-for line in file:
-    product = []
-    for word in line.split(","):
-        product.append(word)
+# for line in file:
+#     product = []
+#     for word in line.split(","):
+#         product.append(word)
 
-print(product_list)
+# print(product_list)

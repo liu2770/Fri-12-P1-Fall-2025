@@ -2,7 +2,7 @@ from p1_functions.signup import sign_up
 import lib.bcrypt   #included in lib folder
 import csv
 
-def loadUserEntry():    #TODO: Use csv module to handle IO instead
+def loadUserEntry(): 
     """
     Helper function, handels read from users.csv. Return 
     a 2D list consists of user names and corresponding 
