@@ -7,3 +7,14 @@ def pack_products(product_list):
             print("The product you are looking for is not available, please try again")
     print("testing!")   #!Remove this line, stub
     return
+
+product_list = []
+
+file = open("products.csv", "r")
+
+for line in file:
+    product = []
+    for word in line.split(","):
+        product.append(word)
+
+print(product_list)
