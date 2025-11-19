@@ -1,5 +1,5 @@
 def customer_summary(userid):
-    file = open("src/content/products.csv",'r')
+    file = open("content/products.csv",'r')
     products = []
 
     for line in file:
@@ -14,7 +14,7 @@ def customer_summary(userid):
     num_orders = 0
     total_spent = 0
 
-    file = open("orders.csv",'r')
+    file = open("content/orders.csv",'r')
     for line in file:
         line = line.strip().split(",")
 
@@ -25,7 +25,7 @@ def customer_summary(userid):
 
             for i in range (len(products)):
                 for i2 in range (2,len(line)):
-                    if line[i2] == products[i]:
+                    if line[i2].strip() == products[i]:
                         product_count[i] += 1
 
 
