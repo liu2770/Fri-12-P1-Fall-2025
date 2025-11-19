@@ -16,17 +16,28 @@ os.chdir(location)
 
 ##*Code starts here
 #TODO: Implement a skeletal structure following the outlined sequence of events
+#TODO: Discuss and further refine the styles of the outputs
 while True:
+    ##Welcome the user
+    #TODO:print welcome message
+    print('='*30)
+    print("Welcome to Fri-12 Warehouse")
+    print('='*30+'\n')
+
     ##Login the user  
     user=authenticate()
+    if user==None:
+        print("Order canceled")
+        break
 
-    ##Scans items   #?Eh no clue what to do here, I don't really see anywhere explicitly lay out the instruction for this.
+    ##Scans items   
+    # load_barcodes()
 
     ##Looks up items and their prices
-    product_list=lookup_products(scanned_list)
+    # product_list=lookup_products(scanned_list)
 
     ##Order to Q-arm to move the items
-    # product_list = []
+    product_list = [["D12",0.12],["Sponge",0.50]]
     # file = open("./content/products.csv", "r")
     # for line in file:
     #     product = []
@@ -43,4 +54,4 @@ while True:
         break
 
 ##Summarize customer order history
-customer_summary(input("Please enter the user ID to see its account summary: "))
+customer_summary(input("Please enter the user ID to see its account summary: "))    #!Need a proper input handling here
