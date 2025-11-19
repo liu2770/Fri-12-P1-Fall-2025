@@ -10,13 +10,13 @@ def complete_order(userid, product_list):
 
     for i in range(len(product_list)):   #for loop that appends product names from products.csv to product list
         product_names = product_list[i][0]
-        product = product.append(product_names)
+        product.append(product_names)
     ordered_products = ", ".join(product)
 
     print(ordered_products)
 
     for i in range(len(product_list)):   #for loop that calculates order subtotal based on price of ordered products
-        price = int(product_list[i][1])
+        price = float(product_list[i][1])
         subtotal += price
 
     discount = subtotal * random_discount   #calculates discount based on subtotal and random discoun value
