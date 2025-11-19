@@ -25,7 +25,7 @@ def complete_order(userid, product_list):
 
     tax_applied = pre_tax_total * tax   #calculates tax on order
 
-    total = pre_tax_total + tax   #calculates order total and rounds it to 2 decimal places
+    total = round(pre_tax_total + tax, 2)   #calculates order total and rounds it to 2 decimal places
 
     total = str(total)
 
