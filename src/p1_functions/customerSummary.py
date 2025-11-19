@@ -1,14 +1,14 @@
 def customer_summary(userid):
-    file = open("orders.csv",'r')
-
+    file = open("src/content/products.csv",'r')
     products = []
-    for line in file:
-        line = line.strip().split(",")
-        product_name = line[2]
-        if product_name not in products:
-            products.append(product_name)
-    product_count = [0]*len(products)
 
+    for line in file:
+        name = line.strip().split(",")
+        products.append(name[0])
+
+    file.close()
+   
+    product_count = [0]*len(products)
 
     validation = False
     num_orders = 0
@@ -17,15 +17,17 @@ def customer_summary(userid):
     file = open("orders.csv",'r')
     for line in file:
         line = line.strip().split(",")
+
         if line[0] == userid:
             validation = True
             num_orders += 1
             total_spent += float(line[1])
+
             for i in range (len(products)):
-                for i2 in range (len(line)):
+                for i2 in range (2,len(line)):
                     if line[i2] == products[i]:
                         product_count[i] += 1
-    file.close()
+
 
     if validation is True:
         print("===================================")
