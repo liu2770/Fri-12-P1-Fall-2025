@@ -25,7 +25,7 @@ def complete_order(userid, product_list):
 
     tax_applied = pre_tax_total * tax   #calculates tax on order
 
-    total = round(pre_tax_total + tax, 2)   #calculates order total and rounds it to 2 decimal places
+    total = round(pre_tax_total + tax_applied, 2)   #calculates order total and rounds it to 2 decimal places
 
     total = str(total)
 
@@ -58,8 +58,8 @@ def complete_order(userid, product_list):
         print(f"{product_name:<11}{product_price:>13.2}")
 
     print(f"-" * 25)
-    print(f"{"Subtotal":<10}{subtotal:>15}")
-    print(f"{"Discount":<10}{discount:>15.2f}")
-    print(f"{"Tax":<10}{tax_applied:>15.2f}")
-    print(f"{"Total":<10}{total:>15}")
+    print(f"{'Subtotal':<10}{subtotal:>15.2f}")
+    print(f"{'Discount':<10}{discount:>15.2f}")
+    print(f"{'Tax':<10}{tax_applied:>15.2f}")
+    print(f"{'Total':<10}{float(total):>15.2f}")
     print(f"\nyou have made {order_count} orders with us so far ")
