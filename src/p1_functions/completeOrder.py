@@ -55,10 +55,10 @@ def complete_order(userid, product_list):
     for i in range(len(product_list)):
         product_name = product_list[i][0]
         product_price = float(product_list[i][1])
-        print(f"{product_name:<11}${product_price:>12.2f}")
+        print(f"{product_name:<11}{'$' + format(float(product_price), ',.2f'):>15}")
 
     print("-" * 25)
-    print(f"{'Subtotal':<10}${subtotal:>14.2f}")
-    print(f"{'Discount':<10}${discount:>14.2f}")
-    print(f"{'Tax':<10}${tax_applied:>14.2f}")
-    print(f"{'Total':<10}${float(total):>14.2f}")
+    print(f"{'Subtotal':<10}{'$' + format(subtotal, ',.2f'):>15}")
+    print(f"{'Discount':<10}{'$' + format(discount, ',.2f'):>15}")
+    print(f"{'Tax':<10}{'$' + format(tax_applied, ',.2f'):>15}")
+    print(f"{'Total':<10}{'$' + format(float(total), ',.2f'):>15}")
