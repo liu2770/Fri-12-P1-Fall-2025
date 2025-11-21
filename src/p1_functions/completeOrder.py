@@ -52,14 +52,13 @@ def complete_order(userid, product_list):
     print("\n   FRI-12 Warehouse   ")   #print statements that print formatted reciept 
     print(f"-" * 25)
 
-    for i in range(len(product_list)):   #for loop that adds orders and price  for reciept
+    for i in range(len(product_list)):
         product_name = product_list[i][0]
-        product_price = product_list[i][1]
-        print(f"{product_name:<11}{product_price:>13.2f}")
+        product_price = float(product_list[i][1])
+        print(f"{product_name:<11}${product_price:>12.2f}")
 
-    print(f"-" * 25)
-    print(f"{'Subtotal':<10}{subtotal:>15.2f}")
-    print(f"{'Discount':<10}{discount:>15.2f}")
-    print(f"{'Tax':<10}{tax_applied:>15.2f}")
-    print(f"{'Total':<10}{float(total):>15.2f}")
-    print(f"\nyou have made {order_count} orders with us so far ")
+    print("-" * 25)
+    print(f"{'Subtotal':<10}${subtotal:>14.2f}")
+    print(f"{'Discount':<10}${discount:>14.2f}")
+    print(f"{'Tax':<10}${tax_applied:>14.2f}")
+    print(f"{'Total':<10}${float(total):>14.2f}")
