@@ -40,53 +40,92 @@ def close_gripper():
     return
 
 def move_to_parcel():
-
-    #TODO: Store the script for moving the gripper to parcel location
+#     arm.rotate_base(-47)
+#     sleep(1)
+#     arm.rotate_elbow(40)
+#     sleep(1)
+#     open_gripper(40)
+    arm.set_arm_position([0.22503238356190008, -0.23900971615063057, 0.22808881742811488])
+    open_gripper(40)
     return
 
 def target_1_logic():   #Sponge
 
     #TODO: Store the script for picking up object 1 and return to home
 
-    arm.home()
-    sleep(1)
+#     arm.home()
+#     sleep(1)
+#     open_gripper(30)
+#     sleep(1)
+#     arm.rotate_base(14)
+#     sleep(1)
+#     arm.rotate_elbow(-9)
+#     sleep(1)
+#     arm.rotate_shoulder(45)
+#     sleep(1)
+#     arm.get_arm_position()
+#     #arm.set_arm_position([0.550975716856366, 0.13490690429229635, 0.08579730620303272])
+#
+#     close_gripper()
+#
+#     arm.rotate_shoulder(-45)
+
+#     arm.home()
+
+
+#     arm.home()
+#     sleep(1)
+#     open_gripper(23)
+#     sleep(1)
+#     arm.rotate_base(16.5)
+#     sleep(1)
+#     arm.rotate_elbow(-10)
+#     sleep(1)
+#     arm.rotate_shoulder(35)
+#     sleep(1)
+#     arm.get_arm_position()
     open_gripper(20)
     sleep(1)
-    arm.rotate_base(15)
-    arm.get_arm_position()
+    arm.set_arm_position([0.5490539443478295, 0.15789464150191637, 0.19156143380856633])
     sleep(1)
-    arm.rotate_elbow(-10)
+    arm.rotate_shoulder(5)
     sleep(1)
-    arm.rotate_shoulder(45)
-
+    arm.rotate_elbow(-2)
+    sleep(1)
     close_gripper()
-
+    sleep(1)
     arm.rotate_shoulder(-45)
+
+    move_to_parcel()
 
     arm.home()
     return
 
-def target_2_logic():   #Bottel
+def target_2_logic():   #Bottle
 
     #TODO: Store the script for picking up object 2 and return to home
 
     arm.home()
     sleep(1)
-    open_gripper(30)
+    open_gripper(15)
     sleep(1)
     arm.rotate_base(8)
     sleep(1)
-    arm.rotate_elbow(-17)
+    arm.rotate_elbow(-16)
     sleep(1)
-    arm.rotate_shoulder(50)
+    arm.rotate_shoulder(52)
     sleep(1)
+    arm.get_arm_position()
+#     open_gripper(15)
+#     arm.set_arm_position([0.5850203821304305, 0.07719062354168196, 0.05075644615654784])
 
     close_gripper()
 
     arm.rotate_shoulder(-45)
 
+    move_to_parcel()
+
     arm.home()
-    sleep(1)
     return
 
 def target_3_logic():   #D12
@@ -125,14 +164,24 @@ def target_6_logic():   #Rook
     arm.home()
     sleep(1)
 
-    arm.rotate_base(3)
+#     open_gripper(15)
+#     sleep(1)
+#     arm.rotate_base(2)
+#     sleep(1)
+#     arm.rotate_elbow(-10)
+#     sleep(1)
+#     arm.rotate_shoulder(48)
+#     arm.get_arm_position()
+    open_gripper(15)
+    arm.set_arm_position([0.5714053048456229, 0.01622402562232702, 0.08827264038887025])
     sleep(1)
-    arm.rotate_elbow(-5)
+
+    close_gripper()
+
+    arm.rotate_shoulder(-50)
     sleep(1)
-    arm.rotate_shoulder(40)
-    #arm.set_arm_position([0.5563790264878321, 0.028623598527956644, 0.1451919543714052]
-    print(f"Rook position: {arm.get_arm_position()}")
-    sleep(1)
+
+    move_to_parcel()
     return
 
 ##Testing starts here
@@ -141,8 +190,10 @@ def target_6_logic():   #Rook
 gripperInit()
 #list=scan_barcode().split()
 #print(list)
-#target_1_logic()
-target_4_logic()
+#move_to_parcel()
+target_1_logic()
+#arm.home()
+
 
 #TODO: get arm to one of the objects
 #TODO: try get the scooper to go below the object
