@@ -55,7 +55,7 @@ def complete_order(userid, product_list):
     for i in range(len(product_list)):   #for loop that adds orders and price  for reciept
         product_name = product_list[i][0]
         product_price = product_list[i][1]
-        print(f"{product_name:<11}{product_price:>13.2}")
+        print(f"{product_name:<11}{product_price:>13.2f}")
 
     print(f"-" * 25)
     print(f"{'Subtotal':<10}{subtotal:>15.2f}")
