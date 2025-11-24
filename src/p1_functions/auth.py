@@ -7,6 +7,7 @@ def loadUserEntry():
     Helper function, handels read from users.csv. Return 
     a 2D list consists of user names and corresponding 
     passwords.
+    Jincheng Liu
     """
     userList=[]
     with open("./content/users.csv",newline='') as file:
@@ -23,6 +24,7 @@ def authenticate():
     if they dont have one call sign_up(). Return
     the user name upon successful authentication,
     let them keep trying if not. Reads from users.csv.
+    Jincheng Liu
     """
     ##Start of the program
     #Proceed to authenticate the user with a while loop
