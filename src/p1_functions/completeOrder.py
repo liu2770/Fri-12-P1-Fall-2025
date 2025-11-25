@@ -10,10 +10,8 @@ def complete_order(userid, product_list):
 
     for i in range(len(product_list)):   #for loop that appends product names from products.csv to product list
         product_names = product_list[i][0]
-        product.append(product_names)
+        product.append(product_names)   
     ordered_products = ", ".join(product)
-
-    print(ordered_products)
 
     for i in range(len(product_list)):   #for loop that calculates order subtotal based on price of ordered products
         price = float(product_list[i][1])
@@ -47,8 +45,6 @@ def complete_order(userid, product_list):
     file.write(userid + ", " + total + ", " + ordered_products + "\n")   #writes user order and total under userid
     order_count += 1
 
-    print(order_count)
-
     print("\n   FRI-12 Warehouse   ")   #print statements that print formatted reciept 
     print(f"-" * 25)
 
@@ -62,3 +58,5 @@ def complete_order(userid, product_list):
     print(f"{'Discount':<10}{'$' + format(discount, ',.2f'):>15}")
     print(f"{'Tax':<10}{'$' + format(tax_applied, ',.2f'):>15}")
     print(f"{'Total':<10}{'$' + format(float(total), ',.2f'):>15}")
+
+    print(f"\nyou have made {order_count} orders with us so far")
