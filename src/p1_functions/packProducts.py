@@ -124,16 +124,15 @@ def target_6_logic(arm):   #Rook
     move_to_parcel()
     return
 
-##!BELOW NEEDS UNIQUE POSITION
 def target_3_logic(arm):   #D12
     open_gripper(15)
-    arm.set_arm_position([0.5714053048456229, 0.01622402562232702, 0.08827264038887025])    #!NEED UNIQUE POSITION
+    arm.set_arm_position([0.5694053048456229, -0.01622402562232702, 0.08827264038887025])
     sleep(1)
 
     close_gripper()
     sleep(1)
 
-    arm.rotate_shoulder(-50)
+    arm.rotate_shoulder(-45)
     sleep(1)
 
     move_to_parcel()
@@ -141,13 +140,13 @@ def target_3_logic(arm):   #D12
 
 def target_4_logic(arm):   #Wizard hat
     open_gripper(15)
-    arm.set_arm_position([0.5714053048456229, 0.01622402562232702, 0.08827264038887025])    #!NEED UNIQUE POSITION
+    arm.set_arm_position([0.5754053048456229, -0.07422402562232702, 0.09127264038887025])
     sleep(1)
 
     close_gripper()
     sleep(1)
 
-    arm.rotate_shoulder(-50)
+    arm.rotate_shoulder(-45)
     sleep(1)
 
     move_to_parcel()
@@ -155,7 +154,7 @@ def target_4_logic(arm):   #Wizard hat
 
 def target_5_logic(arm):   #Bowl
     open_gripper(15)
-    arm.set_arm_position([0.5714053048456229, 0.01622402562232702, 0.08827264038887025])    #!NEED UNIQUE POSITION
+    arm.set_arm_position([0.5604053048456229, -0.15789464150191637, 0.08527264038887025])
     sleep(1)
 
     close_gripper()
