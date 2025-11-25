@@ -423,24 +423,27 @@ print('='*30+'\n')
 ##Login the user  
 user=authenticate()
 
-while True:
-    ##Scans items   
-    # scanned_list=BarcodeScanner.scan_barcode()    #!UNCOMMENT BEFORE DEMO
-    scanned_list="D12 Sponge WitchHat test" #!REMOVE BEFORE DEMO
+if user!=None:
+    while True:
+        ##Scans items   
+        #scanned_list=BarcodeScanner.scan_barcode()    #!UNCOMMENT BEFORE DEMO
+        scanned_list="D12 Sponge WitchHat test"
 
-    ##Looks up items and their prices
-    product_list=lookup_products(scanned_list)
-    print(f"product_list: {product_list}")
+        ##Looks up items and their prices
+        product_list=lookup_products(scanned_list)
+        print(f"product_list: {product_list}")
 
-    ##Order the Q-arm to move the items
-    # pack_products(product_list)    #!UNCOMMENT BEFORE DEMO
+        ##Order the Q-arm to move the items
+        #pack_products(product_list)    #!UNCOMMENT BEFORE DEMO
 
-    ##Calculate total & record order in csv
-    complete_order(user,product_list)
+        ##Calculate total & record order in csv
+        complete_order(user,product_list)
 
-    ##Ask the user if they want to continue or quit
-    if (not bool(input("Enter anything to make another order, enter nothing to see summary and quit.\n"))):
-        break
+        ##Ask the user if they want to continue or quit
+        if (not bool(input("Enter anything to make another order, enter nothing to see summary and quit.\n"))):
+            break
 
-##Summarize customer order history
-customer_summary(user)
+    ##Summarize customer order history
+    customer_summary(user)
+
+print("Program closing.")
