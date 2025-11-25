@@ -10,7 +10,7 @@ def loadUserEntry():
     Jincheng Liu
     """
     userList=[]
-    with open("./content/users.csv",newline='') as file:
+    with open("./content/users.csv",newline="") as file:   #using "with" to better handle file IO (close automatically); csv reader eliminates \r (carriage return) and newline statement removes \n at the end
         csvReader=csv.reader(file)
         # fileLines=file.read().split(sep="\n")
         for userEntry in csvReader:
@@ -59,6 +59,6 @@ def authenticate():
                 print(f"User authentication acknowledged, welcome {userName}.")
                 return userName
             else:
-                input("Password does not match, enter anything to try again...")    #use input to pause the program so user can read the output
+                input("Password does not match, enter anything to try again...\n")    #use input to pause the program so user can read the output
         else:
             input("User not found, enter anything to try again...")
