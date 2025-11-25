@@ -1,6 +1,6 @@
 def lookup_products(products):
     '''Returns a 2D list of products and their prices from the inputted string that matched a product in the products.csv file.
-    Outputting an error print if any inputted product names didn't match any in products.csv'''
+    Outputting an error print if any inputted product names didn't match any in products.csv. Made by KRYSTEN SCASE, 400628749'''
     file = open("./content/products.csv") #open file
     wanted_products = products.split(" ") # List of products that were in the string of "products"
     final_list = []
