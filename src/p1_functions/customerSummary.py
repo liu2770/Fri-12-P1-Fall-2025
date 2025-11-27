@@ -1,4 +1,10 @@
 def customer_summary(userid):
+    """
+    Print fomatted order summary for all previous orders with given username, 
+    with total number of orders,total spend and product quantities included.
+    Rosally Gu
+    400630629
+    """
     file = open("content/products.csv",'r')
     products = []
 
