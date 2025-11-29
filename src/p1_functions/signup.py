@@ -1,31 +1,43 @@
 import csv
-import lib.bcrypt
+import bcrypt
 import re
 
 def sign_up():
-    # ask for user id and clean spaces
+    # ask for user id
     userid = input("Enter a new user ID: ").strip()
-    # read existing users
-    with open("content/users.csv", "r", newline="") as f:
+
+    # read all existing ids (simple loop)
+    existing_ids = []
+    with open("contents/users.csv", "r", newline="") as f:
         reader = csv.reader(f)
-        existing = [row[0] for row in reader]
-    if userid in existing:
+        for row in reader:
+            existing_ids.append(row[0])
+
+    if userid in existing_ids:
         print("User ID already exists.")
         return
+
+    # keep trying passwords until valid or cancelled
     while True:
-        # clean up extra spaces the user might type
         password = input("Enter password (or type CANCEL): ").strip()
-        if password.lower() == "cancel":
+
+        if password == "CANCEL":
             print("Sign-up cancelled.")
             return
-        # rules the password has to follow (upper, lower, digit, symbol, length)
+
+        # regex for password rules
         pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!.@#$%^&*()_\[\]]).{6,}$'
+
         if re.match(pattern, password):
             break
         else:
-            print("Password doesn't meet requirements, try again.")
-    hashed_pw = lib.bcrypt.hashpw(password.encode("utf-8"), lib.bcrypt.gensalt()).decode("utf-8")
-    with open("content/users.csv", "a", newline="") as f:
+            print("Password does not meet requirements. Try again.")
+
+    # hash the password
+    hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+    # write the userid + hashed password
+    with open("contents/users.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([userid, hashed_pw])
 
