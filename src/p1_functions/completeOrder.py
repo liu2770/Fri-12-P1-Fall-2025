@@ -1,3 +1,9 @@
+'''Code for complete_order function for P1. Functions appends ordered a new list and uses new list to calculate final price of order after finding subtotal,
+ subtracting a random amount for the discount, and adding tax. Function then prints formatted reciept of everything the customer ordered, the total price, discount, 
+ and tax, before letting the customer know how many orders they have made in total.
+
+ Sanil Manandhar - 400619905'''
+
 import random
 
 def complete_order(userid, product_list):
