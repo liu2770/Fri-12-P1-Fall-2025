@@ -331,8 +331,6 @@ def complete_order(userid, product_list):   #?Changes Required
         product.append(product_names)
     ordered_products = ", ".join(product)
 
-    print(ordered_products)
-
     for i in range(len(product_list)):   #for loop that calculates order subtotal based on price of ordered products
         price = float(product_list[i][1])
         subtotal += price
@@ -365,8 +363,6 @@ def complete_order(userid, product_list):   #?Changes Required
     file.write(userid + ", " + total + ", " + ordered_products + "\n")   #writes user order and total under userid
     order_count += 1
 
-    print(order_count)
-
     print("\n   FRI-12 Warehouse   ")   #print statements that print formatted reciept 
     print(f"-" * 25)
 
@@ -381,17 +377,23 @@ def complete_order(userid, product_list):   #?Changes Required
     print(f"{'Tax':<10}{'$' + format(tax_applied, ',.2f'):>15}")
     print(f"{'Total':<10}{'$' + format(float(total), ',.2f'):>15}")
 
-def customer_summary(userid):   #?Changes Required
+def customer_summary(userid):
+    """
+    Print formatted order summary for all previous orders for the given username, 
+    with total number of orders,total spend and product quantities included.
+    Rosally Gu
+    400630629
+    """
     file = open("products.csv",'r')
     products = []
 
     for line in file:
         name = line.strip().split(",")
-        products.append(name[0])
+        products.append(name[0])        #add product names to products list
 
     file.close()
    
-    product_count = [0]*len(products)
+    product_count = [0]*len(products)        #create a list has the same length as products list to store number of product
 
     validation = False
     num_orders = 0
@@ -401,14 +403,14 @@ def customer_summary(userid):   #?Changes Required
     for line in file:
         line = line.strip().split(",")
 
-        if line[0] == userid:
+        if line[0] == userid:        #search for the userid that was asked
             validation = True
-            num_orders += 1
-            total_spent += float(line[1])
+            num_orders += 1        #plus one to number of order
+            total_spent += float(line[1])        #add the money spend on this order to total spend
 
             for i in range (len(products)):
-                for i2 in range (2,len(line)):
-                    if line[i2].strip() == products[i]:
+                for i2 in range (2,len(line)):        
+                    if line[i2].strip() == products[i]:        #search for product name from each valid line by reading product name list
                         product_count[i] += 1
 
 
@@ -421,12 +423,12 @@ def customer_summary(userid):   #?Changes Required
         print("------------ Products -------------")
 
         for i in range(len(products)):
-            if product_count[i] != 0: #print product quantity if not 0
+            if product_count[i] != 0:             #print product quantity if not 0
                 print(f"{products[i]:<15}| {product_count[i]}")
         print("===================================")
 
     else:
-        print("Invalid username")
+        print("Invalid username")        #if userid not found, invalid username
 
 ##*Code starts here
 #Setting up the work directory to where ever the main.py is, useful for file paths
