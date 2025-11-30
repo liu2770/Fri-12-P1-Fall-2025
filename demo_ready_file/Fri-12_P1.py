@@ -21,30 +21,42 @@ from time import sleep
 # from Common.qarm_interface_wrapper import * #!UNCOMMENT BEFORE DEMO
 
 ##*Functions
-def sign_up():  #?Changes required
-    # ask for user id and clean spaces
+def sign_up():
+    # ask for user id
     userid = input("Enter a new user ID: ").strip()
-    # read existing users
-    with open("users.csv", "r", newline="") as f:
+
+    # read all existing ids (simple loop)
+    existing_ids = []
+    with open("./users.csv", "r", newline="") as f:
         reader = csv.reader(f)
-        existing = [row[0] for row in reader]
-    if userid in existing:
+        for row in reader:
+            existing_ids.append(row[0])
+
+    if userid in existing_ids:
         print("User ID already exists.")
         return
+
+    # keep trying passwords until valid or cancelled
     while True:
-        # clean up extra spaces the user might type
         password = input("Enter password (or type CANCEL): ").strip()
-        if password.lower() == "cancel":
+
+        if password == "CANCEL":
             print("Sign-up cancelled.")
             return
-        # rules the password has to follow (upper, lower, digit, symbol, length)
+
+        # regex for password rules
         pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!.@#$%^&*()_\[\]]).{6,}$'
+
         if re.match(pattern, password):
             break
         else:
-            print("Password doesn't meet requirements, try again.")
+            print("Password does not meet requirements. Try again.")
+
+    # hash the password
     hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
-    with open("users.csv", "a", newline="") as f:
+
+    # write the userid + hashed password
+    with open("./users.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([userid, hashed_pw])
 
@@ -55,7 +67,7 @@ def loadUserEntry():
     Helper function, handels read from users.csv. Return 
     a 2D list consists of user names and corresponding 
     passwords.
-    Jincheng Liu
+    Jincheng Liu, 400620603
     """
     userList=[]
     with open("users.csv",newline="") as file:   #using "with" to better handle file IO (close automatically); csv reader eliminates \r (carriage return) and newline statement removes \n at the end
@@ -71,7 +83,7 @@ def authenticate():
     if they dont have one call sign_up(). Return
     the user name upon successful authentication,
     let them keep trying if not. Reads from users.csv.
-    Jincheng Liu
+    Jincheng Liu, 400620603
     """
     ##Start of the program
     #Proceed to authenticate the user with a while loop
@@ -143,7 +155,7 @@ def lookup_products(products):  #?Latest
     file.close()
     return final_list
 
-#Line 146-300, helper function and pack_product proper starts
+##*Line 146-300, helper function and pack_product starts
 def pack_logic_handler(arm,item):
     gripperInit(arm)
     match item:
@@ -302,6 +314,11 @@ def target_5_logic(arm):   #Bowl
 #Line 146-300, helper function and pack_product proper ends
 
 def complete_order(userid, product_list):   #?Changes Required
+    '''Code for complete_order function for P1. Functions appends ordered a new list and uses new list to calculate final price of order after finding subtotal,
+    subtracting a random amount for the discount, and adding tax. Function then prints formatted reciept of everything the customer ordered, the total price, discount, 
+    and tax, before letting the customer know how many orders they have made in total.
+
+    Sanil Manandhar - 400619905'''
     tax = 0.13   #sets tax to 0.13 percent
     random_discount = random.uniform(0.05,0.50)   #generates random float value between 0.05 and 0.50 for discount
 
