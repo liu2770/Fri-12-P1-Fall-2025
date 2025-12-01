@@ -457,7 +457,6 @@ if user!=None:
     while True:
         ##Scans items   
         scanned_list=BarcodeScanner.scan_barcode()    
-        scanned_list="D12 Sponge WitchHat test"
 
         ##Looks up items and their prices
         product_list=lookup_products(scanned_list)
