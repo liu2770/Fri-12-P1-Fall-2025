@@ -18,10 +18,21 @@ import re
 sys.path.append("../")
 
 from time import sleep
-# from Common.qarm_interface_wrapper import * #!UNCOMMENT BEFORE DEMO
+from Common.qarm_interface_wrapper import *
 
 ##*Functions
 def sign_up():
+    """
+    Creates a new user account and saves it to users.csv.
+    The function asks for a user ID, checks that it is not already taken,
+    and then asks for a password that meets the required rules.
+    The password must have at least one uppercase letter, one lowercase letter,
+    one number, one symbol, and be at least 6 characters long.
+    If the password is valid, it is hashed and stored in the CSV file
+    along with the user ID. The function does not return anything.
+
+    Shahnawaz Bilgrami, 400630092
+    """
     # ask for user id
     userid = input("Enter a new user ID: ").strip()
 
@@ -122,7 +133,7 @@ def authenticate():
         else:
             input("User not found, enter anything to try again...")
 
-def lookup_products(products):  #?Latest
+def lookup_products(products):
     '''Returns a 2D list of products and their prices from the inputted string that matched a product in the products.csv file.
     Outputting an error print if any inputted product names didn't match any in products.csv. Made by KRYSTEN SCASE, 400628749'''
     file = open("products.csv") #open file
@@ -313,7 +324,7 @@ def target_5_logic(arm):   #Bowl
     return
 #Line 146-300, helper function and pack_product proper ends
 
-def complete_order(userid, product_list):   #?Changes Required
+def complete_order(userid, product_list):   
     '''Code for complete_order function for P1. Functions appends ordered a new list and uses new list to calculate final price of order after finding subtotal,
     subtracting a random amount for the discount, and adding tax. Function then prints formatted reciept of everything the customer ordered, the total price, discount, 
     and tax, before letting the customer know how many orders they have made in total.
@@ -445,7 +456,7 @@ user=authenticate()
 if user!=None:
     while True:
         ##Scans items   
-        #scanned_list=BarcodeScanner.scan_barcode()    #!UNCOMMENT BEFORE DEMO
+        scanned_list=BarcodeScanner.scan_barcode()    
         scanned_list="D12 Sponge WitchHat test"
 
         ##Looks up items and their prices
@@ -453,7 +464,7 @@ if user!=None:
         print(f"product_list: {product_list}")
 
         ##Order the Q-arm to move the items
-        #pack_products(product_list)    #!UNCOMMENT BEFORE DEMO
+        pack_products(product_list)    
 
         ##Calculate total & record order in csv
         complete_order(user,product_list)
