@@ -208,7 +208,7 @@ def gripperInit(arm):  #Initialize gripper state
     arm.home()
     sleep(1)
 
-    close_gripper()
+    close_gripper(arm)
     sleep(1)
     return
 
@@ -252,75 +252,75 @@ def target_1_logic(arm):   #Sponge
 
 def target_2_logic(arm):   #Bottle
 
-    open_gripper(15)
+    open_gripper(arm,15)
     arm.set_arm_position([0.5850203821304305, 0.07719062354168196, 0.05075644615654784])
     sleep(1)
 
-    close_gripper()
+    close_gripper(arm)
     sleep(1)
 
     arm.rotate_shoulder(-45)
     sleep(1)
 
-    move_to_parcel()
+    move_to_parcel(arm)
 
     arm.home()
     return
 
 def target_6_logic(arm):   #Rook
-    open_gripper(15)
+    open_gripper(arm,15)
     arm.set_arm_position([0.5714053048456229, 0.01622402562232702, 0.08827264038887025])
     sleep(1)
 
-    close_gripper()
+    close_gripper(arm)
     sleep(1)
 
     arm.rotate_shoulder(-50)
     sleep(1)
 
-    move_to_parcel()
+    move_to_parcel(arm)
     return
 
 def target_3_logic(arm):   #D12
-    open_gripper(15)
+    open_gripper(arm,15)
     arm.set_arm_position([0.5694053048456229, -0.01622402562232702, 0.08827264038887025])
     sleep(1)
 
-    close_gripper()
+    close_gripper(arm)
     sleep(1)
 
     arm.rotate_shoulder(-45)
     sleep(1)
 
-    move_to_parcel()
+    move_to_parcel(arm)
     return
 
 def target_4_logic(arm):   #Wizard hat
-    open_gripper(15)
+    open_gripper(arm,15)
     arm.set_arm_position([0.5754053048456229, -0.07422402562232702, 0.09127264038887025])
     sleep(1)
 
-    close_gripper()
+    close_gripper(arm)
     sleep(1)
 
     arm.rotate_shoulder(-45)
     sleep(1)
 
-    move_to_parcel()
+    move_to_parcel(arm)
     return
 
 def target_5_logic(arm):   #Bowl
-    open_gripper(15)
+    open_gripper(arm,15)
     arm.set_arm_position([0.5604053048456229, -0.15789464150191637, 0.08527264038887025])
     sleep(1)
 
-    close_gripper()
+    close_gripper(arm)
     sleep(1)
 
     arm.rotate_shoulder(-50)
     sleep(1)
 
-    move_to_parcel()
+    move_to_parcel(arm)
     return
 #Line 146-300, helper function and pack_product proper ends
 
